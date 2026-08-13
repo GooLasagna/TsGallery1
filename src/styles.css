@@ -1,0 +1,125 @@
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #9aa4b2;
+  --accent: #38bdf8;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,#071022 0%, #0b1220 100%);
+  color:#e6eef6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+  padding:2rem;
+}
+
+.app header{margin-bottom:1rem}
+h1{margin:0 0 .25rem 0;font-size:1.5rem}
+p{margin:0;color:var(--muted)}
+
+.gallery-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px,1fr));
+  gap:12px;
+  margin-top:1rem;
+}
+
+.thumb{
+  display:block;
+  padding:0;
+  background:transparent;
+  border:0;
+  border-radius:8px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.6);
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.thumb img{
+  display:block;
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  vertical-align:middle;
+}
+.thumb:focus, .thumb:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(2,6,23,0.75);
+  outline: 3px solid rgba(56,189,248,0.14);
+}
+
+.lightbox{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(2,6,23,0.7);
+  z-index:1000;
+  padding:24px;
+}
+
+.lightbox-inner{
+  max-width:1100px;
+  width:100%;
+  background:linear-gradient(180deg, rgba(9,12,18,0.55), rgba(7,10,16,0.6));
+  border-radius:10px;
+  padding:16px;
+  box-shadow:0 12px 40px rgba(0,0,0,0.6);
+  position:relative;
+}
+
+.lightbox-media{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  position:relative;
+}
+
+.lightbox-media img{
+  max-height:70vh;
+  max-width:100%;
+  border-radius:6px;
+  display:block;
+  margin:0 auto;
+}
+
+.nav{
+  background:rgba(0,0,0,0.35);
+  border:none;
+  color:#fff;
+  font-size:2rem;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  user-select:none;
+}
+.nav:focus{outline:2px solid var(--accent)}
+.nav.left{margin-right:8px}
+.nav.right{margin-left:8px}
+
+.close{
+  position:absolute;
+  right:12px;
+  top:12px;
+  background:transparent;
+  border:0;
+  font-size:1.25rem;
+  color:var(--muted);
+  cursor:pointer;
+}
+.close:focus{outline:2px solid var(--accent)}
+
+.lightbox-caption{
+  display:flex;
+  justify-content:space-between;
+  margin-top:8px;
+  color:var(--muted);
+  font-size:0.95rem;
+}
+footer{margin-top:1.5rem;color:var(--muted)}
